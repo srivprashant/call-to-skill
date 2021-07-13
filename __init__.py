@@ -7,7 +7,8 @@ class CallTo(MycroftSkill):
 
     @intent_file_handler('to.call.intent')
     def handle_to_call(self, message):
-        self.speak_dialog('to.call')
+        person = self.get_response('call.who')
+        self.speak_dialog('to.call', {'person': person})
 
 
 def create_skill():
